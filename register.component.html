@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5 col-md-12 col-sm-12">
+            <div class="card shadow-lg border-0 p-3">
+                <div class="card-body">
+                    <h1>Create an account</h1>
+                    <form 
+                        action="" 
+                        class="mt-5"
+                        
+                        > <!-- (ngSubmit)="f.form.valid&&onSubmit()" -->
+                        <div class="form-group">
+                            <label class="text-uppercase">Name</label>
+                            <input type="text" class="form-control" type="text" name="name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="User Name" required > <!-- [(ngModel)]="signupObj.name" #name="ngModel" -->
+                            <span class="text-danger" > <!--True when validation fails (Not provide value for input) *ngIf="this.submit&&name.errors?.['required']"-->
+                                Name is required.
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-uppercase">Email</label>
+                            <input type="text"  class="form-control" type="email" name="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" placeholder="User Email" required > <!--[(ngModel)]="signupObj.email" #email="ngModel"-->
+                            <span class="text-danger" >  <!-- *ngIf="this.submit&&email.errors?.['required']" -->
+                                Email is required.
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <div class="password_field">
+                                <label class="text-uppercase">Password</label>
+                                <input  class="form-control" type="password" name="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" id="id_password" placeholder="User Password" required  minlength="8"> <!-- [type]="changetype?'password' : 'text'" [(ngModel)]="signupObj.password" #password="ngModel"-->
+                                <span ><i  class="fa fa-eye"></i></span> <!-- [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'" (click)="viewPass()"-->
+                            </div>
+                            <span class="text-danger" > <!--*ngIf="this.submit&&password.errors?.['required']"-->
+                                Password is required.
+                            </span>
+                            <span class="text-danger" > <!-- *ngIf="this.submit&&password.errors?.['minlength']" -->
+                                Password should contain minimum 8 characters
+                            </span>
+                        </div>
+                        <div class="form-group mt-4">
+                            <!-- <span class="text-danger" *ngIf="this.errorMessage">
+                                Custom Error Message
+                            </span>
+                            <div class="text-center" *ngIf="this.loading">
+                                <div class="spinner-border text-dark">
+                                    <span class="sr-only">
+                                        Loading.....
+                                    </span>
+                                </div>
+                            </div> -->
+                            <!-- <button type="submit" class="btn btn-dark btn-lg btn-block mt-3" (click)="submit=true"  [disabled]="this.loading">Sign Up</button> -->
+                            <button type="submit" (click)="register()" class="btn btn-dark btn-lg btn-block mt-3" >Sign Up</button> <!--(click)="submit=true" [disabled]="this.loading"-->
+                            <!-- <button type="submit" class="btn btn-dark btn-lg btn-block mt-3" (click)="onSignUp()" >Sign Up</button> -->
+                            <!-- <button type="submit" class="btn btn-dark btn-lg btn-block mt-3" (click)="getName()">Get</button> -->
+                        </div>
+                        <p class="text-center mt-2">Already have an account?<span><a href="javascript:void(0);" routerLink="/login" style="color:#343a40;font-weight:700;">Login</a></span></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
